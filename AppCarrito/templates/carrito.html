@@ -3,7 +3,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Compra</th>
+                <th>CARRITO</th>
             </tr>
             <tr>
                 <th>Nombre</th>
@@ -28,10 +28,9 @@
             <tr><td colspan="4"><p>No hay Productos Seleccionados</p></td></tr>
             {% endif %}
             <tr>
-                <td colspan="2"><a href="" class="btn btn-dark">Total 🛒 </a></td><td>{{total_carrito}} €.-</td> 
-                <td><div id="paypal-button-container"></div></td>
+                <td>Total 🛒 </td><td>{{total_carrito}} €.-</td> 
                 <td><a href="{% url 'Limpiar'%}" class="btn btn-dark">Limpiar</a></td>
-                
+                <td><div id="paypal-button-container"></div></td>
             </tr>
             <script>
                 paypal.Buttons({
