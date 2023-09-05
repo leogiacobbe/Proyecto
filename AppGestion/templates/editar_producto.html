@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h2>Editar Producto</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ producto.nombre }}" required><br>
+        <label for="imagen1">Imagen:</label>
+        <input type="text" name="imagen1" value="{{ producto.imagen1 }}"><br>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" step="0.01" value="{{ producto.precio }}" required><br>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{% url 'listar_productos' %}" class="button-style">Volver a la lista de productos</a>
+</body>
+{% endblock %}
+</html>

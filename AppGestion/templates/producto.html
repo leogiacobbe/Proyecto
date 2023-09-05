@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>Administrar Productos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #264653;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #264653;
+            color: #FCEFEA;
+        }
+        tr:nth-child(even) {
+            background-color: #FCEFEA;
+        }
+        tr:nth-child(odd) {
+            background-color: #FFD3B5;
+        }
+    </style>
+</head>
+<body>
+    <h2>Insertar Producto</h2>
+    <form method="post" action="{% url 'insertar_producto' %}">
+        {% csrf_token %}
+        <label for="id">ID:</label>
+        <input type="number" name="id" required><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br>
+        <label for="imagen1">Imagen:</label>
+        <input type="text" name="imagen1"><br>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" step="0.01" required><br>
+        <button type="submit">Insertar</button>
+    </form>
+
+    <h2>Productos</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.imagen1 }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>
+                <a href="{% url 'detalle_producto' producto.id %}" class="btn btn-secondary">Ver detalle</a>
+                <a href="{% url 'editar_producto' producto.id %}" class="btn btn-secondary">Editar</a>
+                <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-secondary">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %}
+</html>

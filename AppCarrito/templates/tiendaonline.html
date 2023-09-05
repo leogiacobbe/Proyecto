@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}    
+    <title>Comprame-esta.com 🛒</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="row" style="padding: 10px 10px;">
+                    <div class="col-12">
+                        <div class="row">
+                            {% for p in productos %}
+                            <div class="col-6">
+                                <div class="card" style="height: 25rem;width: 20rem;margin:5px 5px;">
+                                    <div class="card-body">
+                                        <img src="{% static 'images/' %}{{p.imagen1}}" class="w3-round" style="width:90%" alt="">
+                                        <h5 class="card-title">{{p.nombre}}</h5>
+                                        <p class="card-text">{{p.precio}} €.-</p>
+                                        <a href="agregar/{{p.id}}" class="btn btn-dark">Agregar al carrito</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                {% include "carrito.html" %}
+            </div>
+            
+        </div>       
+    </div>   
+    
+</body>
+
+{% endblock %}
+</html>
