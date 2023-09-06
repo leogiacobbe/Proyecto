@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8qrpfi**_ypo#*9-u!sln*kx$j!kiw%241zjgu5l0o*0*ks!q4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['LeoGiaco.pythonanywhere.com']
 
 
 # Application definition
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'Proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tiendas',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'NAME': 'LeoGiaco$tiendas',
+        'USER': 'LeoGiaco',
+        'PASSWORD': 'salame123',
+        'HOST': 'LeoGiaco.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
 
